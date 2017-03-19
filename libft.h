@@ -6,12 +6,13 @@
 /*   By: rfabre <rfabre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 20:16:41 by rfabre            #+#    #+#             */
-/*   Updated: 2017/03/08 03:33:33 by rfabre           ###   ########.fr       */
+/*   Updated: 2017/03/19 21:08:02 by rfabre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# define BUFF_SIZE 32
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
@@ -87,5 +88,6 @@ void				ft_printstrs(char **str);
 void				ft_lstaddend(t_list **alst, t_list *new);
 char				*ft_strjoinnfree(char *s1, char *s2, size_t len, char b12);
 char				*ft_strndup(const char *s, size_t n);
+int					get_next_line(const int fd, char **line);
 
 #endif
