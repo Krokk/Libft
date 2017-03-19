@@ -6,13 +6,12 @@
 /*   By: rfabre <rfabre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 20:16:41 by rfabre            #+#    #+#             */
-/*   Updated: 2017/01/25 23:12:13 by rfabre           ###   ########.fr       */
+/*   Updated: 2017/03/08 03:33:33 by rfabre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
@@ -85,4 +84,8 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				ft_printstrs(char **str);
+void				ft_lstaddend(t_list **alst, t_list *new);
+char				*ft_strjoinnfree(char *s1, char *s2, size_t len, char b12);
+char				*ft_strndup(const char *s, size_t n);
+
 #endif

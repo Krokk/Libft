@@ -6,7 +6,7 @@
 /*   By: rfabre <rfabre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 17:17:32 by rfabre            #+#    #+#             */
-/*   Updated: 2016/12/08 19:34:57 by rfabre           ###   ########.fr       */
+/*   Updated: 2016/12/06 20:09:22 by rfabre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,5 @@ char			**ft_strsplit(const char *str, char c)
 		s[j] = NULL;
 		return (s);
 	}
-	return (NULL);}
+	return (NULL);
+}

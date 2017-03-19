@@ -6,7 +6,7 @@
 #    By: rfabre <rfabre@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 17:18:59 by rfabre            #+#    #+#              #
-#    Updated: 2016/12/07 00:10:00 by rfabre           ###   ########.fr        #
+#    Updated: 2017/03/08 03:33:39 by rfabre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,26 +70,35 @@ SRC = ft_bzero.c\
 	  ft_lstdel.c\
 	  ft_lstadd.c\
 	  ft_lstiter.c\
-	  ft_lstmap.c
+	  ft_lstmap.c\
+	  ft_lstaddend.c\
+	  ft_strndup.c\
+	  ft_strjoinnfree.c
 
+OBJDIR = objs
 HEADERFLAGS = -I libft.h
 CC = gcc
 CFLAGS = -Werror -Wall -Wextra
-OBJ = $(SRC:.c=.o)
+OBJ = $(addprefix ${OBJDIR}/, $(SRC:.c=.o))
 RM = rm -f
 
 all : $(NAME)
 
-$(NAME) :
+$(NAME) : $(OBJ)
 	@echo "\t\033[33;32m'MAKE' ->\t\033[1;34m$(NAME)\033[0m :\tLibrary compilation in progress..."
-	@$(CC) -c $(CFLAGS) $(SRC) $(HEADERFLAGS)
-	@ar rc $(NAME) $(OBJ)
-	@ranlib $(NAME)
+
+	@ar rcs $(NAME) $(OBJ)
+
 	@echo "\t\033[33;32m'MAKE' ->\t\033[1;34m$(NAME)\033[0m : Library compilation completed successfully !"
+
+${OBJDIR}/%.o : ./%.c
+	@echo Compiling $@
+	@/bin/mkdir -p ${OBJDIR}
+	@${CC} ${CFLAGS} -I./includes -c -o $@ $<
 
 clean :
 	@echo "\t\033[1;31m'CLEAN' ->\tDestruction\033[0m:\tfiles .o for the library \033[1;34m$(NAME)\033[0m"
-	@$(RM) $(OBJ)
+	@rm -rf $(OBJDIR)
 	@echo "\t\033[1;31m'CLEAN' ->\tDestruction\033[0m:\tfiles .o for the library \033[1;34m$(NAME)\033[0m completed successfully !"
 
 fclean : clean
