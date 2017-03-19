@@ -73,7 +73,8 @@ SRC = ft_bzero.c\
 	  ft_lstmap.c\
 	  ft_lstaddend.c\
 	  ft_strndup.c\
-	  ft_strjoinnfree.c
+	  ft_strjoinnfree.c\
+	  get_next_line.c
 
 OBJDIR = objs
 HEADERFLAGS = -I libft.h
