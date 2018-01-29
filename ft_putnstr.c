@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_putnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfabre <rfabre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 16:23:08 by rfabre            #+#    #+#             */
-/*   Updated: 2017/08/15 15:04:54 by rfabre           ###   ########.fr       */
+/*   Created: 2017/06/17 14:30:33 by rfabre            #+#    #+#             */
+/*   Updated: 2017/06/17 14:31:21 by rfabre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+void	ft_putnstr(char const *s, size_t n)
 {
-	void *mem;
-
-	if ((mem = malloc(size)) == NULL)
-		return (NULL);
-	ft_bzero(mem, size);
-	return (mem);
+	if (s != NULL)
+		write(1, s, n);
 }

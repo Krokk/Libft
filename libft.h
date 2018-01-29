@@ -6,16 +6,37 @@
 /*   By: rfabre <rfabre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 20:16:41 by rfabre            #+#    #+#             */
-/*   Updated: 2017/03/19 21:08:02 by rfabre           ###   ########.fr       */
+/*   Updated: 2017/09/25 14:52:24 by rfabre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# define BUFF_SIZE 32
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <sys/stat.h>
+
+# define DEFAULT "\033[0m"
+# define BLACK "\033[30m"
+# define RED "\033[31m"
+# define GREEN "\033[32m"
+# define YELLOW "\033[33m"
+# define BLUE "\033[34m"
+# define PURPLE "\033[35m"
+# define TURQUOISE "\033[36m"
+
+# define PRESS_LEFT				4479771
+# define PRESS_RIGHT			4414235
+# define PRESS_UP				4283163
+# define PRESS_DOWN				4348699
+# define PRESS_DEL				2117294875L
+# define PRESS_SPACE			32
+# define PRESS_ENTER			10
+# define PRESS_ESCAPE			27
+# define PRESS_BACKSPACE		127
+# define PRESS_STARS			42
+# define PRESS_BACKSLASH		47
 
 typedef	struct		s_list
 {
@@ -86,8 +107,11 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				ft_printstrs(char **str);
 void				ft_lstaddend(t_list **alst, t_list *new);
-char				*ft_strjoinnfree(char *s1, char *s2, size_t len, char b12);
 char				*ft_strndup(const char *s, size_t n);
-int					get_next_line(const int fd, char **line);
-
+char				*ft_strjoinmulti(char const *s1, char const *s2,
+		char const *s3);
+size_t				ft_strcspn(const char *str1, char str2);
+void				ft_putnstr(char const *s, size_t n);
+char				*ft_freejoinstr(char *dst, char *src);
+void				ft_freearraystr(char **array);
 #endif

@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_freearraystr.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfabre <rfabre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 16:23:08 by rfabre            #+#    #+#             */
-/*   Updated: 2017/08/15 15:04:54 by rfabre           ###   ########.fr       */
+/*   Created: 2017/08/19 12:49:51 by rfabre            #+#    #+#             */
+/*   Updated: 2017/09/03 21:40:06 by rfabre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+void	ft_freearraystr(char **array)
 {
-	void *mem;
+	int	i;
 
-	if ((mem = malloc(size)) == NULL)
-		return (NULL);
-	ft_bzero(mem, size);
-	return (mem);
+	if (array)
+	{
+		i = -1;
+		while (array[++i])
+		{
+			ft_strdel(&array[i]);
+			free(array[i]);
+		}
+		free(array);
+	}
 }

@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfabre <rfabre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 16:23:08 by rfabre            #+#    #+#             */
-/*   Updated: 2017/08/15 15:04:54 by rfabre           ###   ########.fr       */
+/*   Created: 2017/06/01 18:01:03 by rfabre            #+#    #+#             */
+/*   Updated: 2017/08/17 14:02:03 by rfabre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+void	*ft_realloc(void *ptr, size_t prev_size, size_t new_size)
 {
-	void *mem;
+	void	*new;
 
-	if ((mem = malloc(size)) == NULL)
+	if (!ptr)
 		return (NULL);
-	ft_bzero(mem, size);
-	return (mem);
+	if (!(new = ft_memalloc(new_size)))
+	{
+		free(ptr);
+		return (NULL);
+	}
+	ft_memcpy(new, ptr, prev_size < new_size ? prev_size : new_size);
+	free(ptr);
+	return (new);
 }

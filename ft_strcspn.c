@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strcspn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfabre <rfabre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 16:23:08 by rfabre            #+#    #+#             */
-/*   Updated: 2017/08/15 15:04:54 by rfabre           ###   ########.fr       */
+/*   Created: 2017/06/17 14:19:08 by rfabre            #+#    #+#             */
+/*   Updated: 2017/06/17 18:35:29 by rfabre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+size_t	ft_strcspn(const char *s1, char s2)
 {
-	void *mem;
+	int	i;
 
-	if ((mem = malloc(size)) == NULL)
-		return (NULL);
-	ft_bzero(mem, size);
-	return (mem);
+	i = 0;
+	if (s1 && s2)
+	{
+		while (s1[i] != '\0' && s2 != '\0' && s1[i] != s2)
+			i++;
+	}
+	return (i);
 }
